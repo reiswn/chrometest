@@ -2,5 +2,11 @@
   "extName": {
     "message": "Minha Primeira Ext",
     "description": "Nome da extensão."
+  },
+  
+  "extDescription": {
+    "message": "Primeira extensão",
+    "description": "Descricao da extensao"
   }
+  
 }

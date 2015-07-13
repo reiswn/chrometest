@@ -7,7 +7,7 @@
   
   // Recommended
   "default_locale": "pt_BR",
-  "description": "Primeira extensão",
+  "description": "__MSG_extDescription__",
 
   // Pick one (or none)
   "browser_action": {

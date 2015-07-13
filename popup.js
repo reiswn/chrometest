@@ -1,0 +1,8 @@
+var jsonText = '{"atletas": [{"posicao_id": 1, "clube_id": 284, "id": 37770, "apelido": "Marcelo Grohe"}, {"posicao_id": 3, "clube_id": 282, "id": 68925, "apelido": "Leonardo Silva"}, {"posicao_id": 3, "clube_id": 284, "id": 80853, "apelido": "Pedro Geromel"}, {"posicao_id": 3, "clube_id": 276, "id": 84554, "apelido": "Luc\u00e3o"}, {"posicao_id": 4, "clube_id": 282, "id": 37851, "apelido": "Maicosuel"}, {"posicao_id": 4, "clube_id": 290, "id": 50295, "apelido": "Felipe Menezes"}, {"posicao_id": 4, "clube_id": 284, "id": 51548, "apelido": "Giuliano"}, {"posicao_id": 4, "clube_id": 316, "id": 69047, "apelido": "Paulo Roberto"}, {"posicao_id": 5, "clube_id": 275, "id": 38957, "apelido": "Rafael Marques"}, {"posicao_id": 5, "clube_id": 292, "id": 68690, "apelido": "Andr\u00e9"}, {"posicao_id": 5, "clube_id": 284, "id": 90302, "apelido": "Pedro Rocha"}, {"posicao_id": 6, "clube_id": 314, "id": 37306, "apelido": "Gilson Kleina"}], "time": {"imagens_escudo": {"img_escudo_160x160": "http://s.glbimg.com/es/ca/escudos/times/20/ec/escudo_160x160_time_8954193.png", "img_escudo_32x32": "http://s.glbimg.com/es/ca/escudos/times/20/ec/escudo_32x32_time_8954193.png"}, "esquema": 1, "nome": "SE Shitara", "patrimonio": 122.67, "rodada": 13, "cadun_id": 51014628, "nome_cartola": "Shitara", "slug": "se-shitara"}}';
+    
+var obj = JSON.parse(jsonText);
+    
+document.getElementById("demo").innerHTML =
+  obj.atletas[0].apelido + "<br>" +
+  obj.atletas[1].apelido + "<br>" +
+  obj.time.nome;
