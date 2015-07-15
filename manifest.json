@@ -16,7 +16,8 @@
   },
   
   "permissions": [
-    "http://api.cartola.globo.com/"
+    "http://api.cartola.globo.com/",
+    "http://cartolafc.globo.com/"
   ],
   
   //Optional
