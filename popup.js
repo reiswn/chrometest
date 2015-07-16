@@ -1,5 +1,8 @@
 var labelsRodadas = [];
 var arrPontuacao = [];
+var esquemas = ["3-4-3","3-5-2","4-3-3","4-4-2","4-5-1","5-3-2","5-4-1"]
+
+
 
 function iterate_jason(rodada, time){
   
@@ -22,6 +25,9 @@ function iterate_jason(rodada, time){
       
       var td = pElement.appendChild(document.createElement("td"));
       td.innerHTML = resp.time.patrimonio;
+      
+      var td = pElement.appendChild(document.createElement("td"));
+      td.innerHTML = esquemas[resp.time.esquema-1];
 
       document.getElementById("demo").appendChild(pElement);
       document.getElementById("ultimaRodada").value = resp.time.rodada;
