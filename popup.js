@@ -1,3 +1,6 @@
+var labelsRodadas = [];
+var arrPontuacao = [];
+
 function iterate_jason(rodada, time){
   
   var xhr = new XMLHttpRequest();
@@ -15,6 +18,7 @@ function iterate_jason(rodada, time){
       
       var td = pElement.appendChild(document.createElement("td"));
       td.innerHTML = resp.time.pontuacao;
+      arrPontuacao[rodada-1] = resp.time.pontuacao;
       
       var td = pElement.appendChild(document.createElement("td"));
       td.innerHTML = resp.time.patrimonio;
@@ -29,33 +33,42 @@ function iterate_jason(rodada, time){
 
 document.getElementById("pesquisar").addEventListener('click', function() {
 
-    var largura = 200; var altura = 300;
-    var canvas = document.getElementById("grafico");
-    var ctx = canvas.getContext("2d");
-    var x = 0;
-
-    canvas.setAttribute("width", largura);
-    canvas.setAttribute("height", altura);
-
-    ctx.fillStyle = "lime"; 
-    ctx.fillRect(0, 0, largura, altura); 
-    ctx.font = "30px Courier";
 
     for(var i = 1; i<14; i++){
       iterate_jason(i, document.getElementById("time").value);
-
-    //define o avanço horizontal 
-    x+=10; 
-    //desenha uma linha até a posição gerada 
-    ctx.lineTo(x, altura-i); 
-    ctx.stroke(); 
-    //desenha um retangulo onde está sendo escrito o valor do gráfico 
-    ctx.fillStyle = "lime"; 
-    ctx.fillRect(0, 0, largura, 30); 
-    //desenha o texto indicando o valor do gráfico, na posição x atual 
-    ctx.fillStyle = "red"; 
-    ctx.fillText(i, x, 30);
-
+      labelsRodadas[i-1] = i;
     }
+    
+    var ctx = document.getElementById("grafico").getContext("2d");
+		window.myLine = new Chart(ctx).Line(lineChartData, {
+			responsive: true
+		});
 
 });
+
+    var lineChartData = {
+			labels : labelsRodadas,
+			datasets : [
+				//{
+					//label: "My First dataset",
+					//fillColor : "rgba(220,220,220,0.2)",
+					//strokeColor : "rgba(220,220,220,1)",
+					//pointColor : "rgba(220,220,220,1)",
+					//pointStrokeColor : "#fff",
+					//pointHighlightFill : "#fff",
+					//pointHighlightStroke : "rgba(220,220,220,1)",
+//					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+				//},
+				{
+					label: "My Second dataset",
+					fillColor : "rgba(151,187,205,0.2)",
+					strokeColor : "rgba(151,187,205,1)",
+					pointColor : "rgba(151,187,205,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(151,187,205,1)",
+					data : arrPontuacao
+				}
+			]
+
+		}

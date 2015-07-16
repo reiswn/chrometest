@@ -9,6 +9,8 @@
   "default_locale": "pt_BR",
   "description": "__MSG_extDescription__",
 
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  
   // Pick one (or none)
   "browser_action": {
     "default_icon": "icon16.png",
