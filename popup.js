@@ -48,18 +48,24 @@ document.getElementById("pesquisar").addEventListener('click', function() {
       iterate_jason(i, times[j]);
       labelsRodadas[i-1] = i;
     }
-
+    
     datasetValue[j] = 
     {
 		label: "Dataset "+j,
-		fillColor : "rgba(151,187,205,0.2)",
-		strokeColor : "rgba(151,187,205,1)",
-		pointColor : "rgba(151,187,205,1)",
+		fillColor : "rgba(255,255,255,0.2)",
+		strokeColor : "rgba("+(101+j*30)+","+(137+j*40)+","+(155+j*50)+",1)",
+		pointColor : "rgba("+(101+j*30)+","+(137+j*40)+","+(155+j*50)+",1)",
 		pointStrokeColor : "#fff",
 		pointHighlightFill : "#fff",
-		pointHighlightStroke : "rgba(151,187,205,1)",
+		pointHighlightStroke : "rgba("+(101+j*30)+","+(137+j*40)+","+(155+j*50)+",1)",
 		data : arrPontuacao
 	}
+    
+    var divChild = document.createElement("div");
+    var textChild = document.createTextNode(times[j]);
+    divChild.setAttribute("style", "background-color: rgba("+(151+j*30)+","+(187+j*40)+","+(205+j*50)+",1); width: 80px; float:left;");
+    divChild.appendChild(textChild);
+    document.getElementById("divGrafico").appendChild(divChild);
 
   }
 
